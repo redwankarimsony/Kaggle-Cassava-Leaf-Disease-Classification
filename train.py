@@ -64,15 +64,11 @@ if FLAGS.model_summary:
 
 if FLAGS.finetune:
     model.get_layer(index=0).trainable = True
-    model.compile(optimizer = FLAGS.optimizer ,
-                    loss='sparse_categorical_crossentropy',     
-                    metrics=['accuracy'])
+    model.compile(optimizer = FLAGS.optimizer,loss='sparse_categorical_crossentropy', metrics=['accuracy'])
     print('\n\nBackbone is trainable. Backbone Finetuning!!!!\n\n')
 else:
     model.get_layer(index=0).trainable = False
-    model.compile(optimizer = FLAGS.optimizer ,
-                    loss='sparse_categorical_crossentropy',     
-                    metrics=['accuracy'])
+    model.compile(optimizer = FLAGS.optimizer, loss='sparse_categorical_crossentropy', metrics=['accuracy'])
     print('\n\nBackbone is frozen. Transfer learning!!!!\n\n')
 
 
