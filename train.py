@@ -62,6 +62,13 @@ else:
 if FLAGS.model_summary:
     model.summary()
 
+if FLAGS.finetune:
+    model.get_layer(0).trainable = True
+    print('\n\nBackbone is trainable. Backbone Finetuning!!!!\n\n')
+else:
+    model.get_layer(0).trainable = False
+    print('\n\nBackbone is frozen. Backbone Finetuning!!!!\n\n')
+
 
 history = model.fit(train_data, 
                     validation_data=valid_data,
