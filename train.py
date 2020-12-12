@@ -82,6 +82,7 @@ history = model.fit(train_data,
                     )
 
 model.save(f'saved_model/{FLAGS.model}')
+print('Success')
 
 
 
